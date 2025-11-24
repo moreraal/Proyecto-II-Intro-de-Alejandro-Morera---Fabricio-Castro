@@ -1,0 +1,43 @@
+Resumen General del primer dia en avances: En esta etapa del desarrollo, se ha completado la implementación de la lógica fundamental del juego. Se han definido las clases base para la interacción con el entorno, la generación procedural de niveles y la inteligencia artificial básica de los enemigos, así como la gestión de estados para dos modos de juego distintos.
+
+1. Sistema de Terrenos y Movilidad 
+Se implementó una clase madre Terreno de la cual heredan tipos específicos de superficies, tales como:
+
+Muros que bloquean a todas las entidades.
+
+Caminos transitables por todos.
+
+Túneles de ventaja estratégica para el Jugador y que el enemigo no puede pasar.
+
+Lianas de ventaja estratégica para el Enemigo y que el jugador no puede pasar.
+
+Además del uso de herencia para simplificar las validaciones de colisiones futuras.
+
+2. Generación Procedural de Mapas
+Se desarrollaron algoritmos para crear niveles dinámicos, garantizando que cada partida sea diferente:
+
+Algoritmo Random Walk: Genera caminos orgánicos y aleatorios.
+
+Algoritmo DFS (Depth-First Search): Implementado para crear estructuras tipo laberinto, asegurando siempre que exista una ruta viable desde el punto de inicio (0,0) hasta la salida.
+
+3. Lógica del Jugador y Gestión de Recursos
+Se programó la clase Jugador con mecánicas de movimiento avanzadas:
+
+Sistema de Energía (Stamina): El jugador tiene una barra de energía limitada.
+
+Mecánica de Correr (Sprint): Permite duplicar la velocidad de movimiento a cambio de un coste de energía. Si la energía se agota, el jugador vuelve a velocidad normal.
+
+Validación de Límites: El jugador no puede salir de la matriz ni atravesar terrenos prohibidos.
+
+4. Inteligencia Artificial (IA) de Enemigos
+Se creó una clase Enemigo con una máquina de estados simple que altera su comportamiento según el modo de juego:
+
+Comportamiento de Persecución (Pathfinding básico): El enemigo calcula la diferencia de coordenadas (X, Y) para acercarse al jugador en cada turno.
+
+Comportamiento de Huida: El enemigo invierte su lógica de movimiento para alejarse lo máximo posible del jugador.
+
+5. Se estructuraron dos clases controladoras que dictan las reglas de victoria y derrota:
+
+El modo de escapa, en el que el enemigo se encarga de perseguir al jugador y este tiene que llegar hasta la casilla final para sobrevivir.
+
+El modo cazador, en este el jugador irá acumulando puntos mientras atrapa a los enemigos.
