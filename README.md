@@ -1,5 +1,5 @@
 Se ha avanzado en la implementación del juego "Escapa del Laberinto"
-Avance del proyecto
+Avance del proyecto Fabricio Castro y Alejandro Morera 
 Fecha: 26 de Noviembre de 2025 Proyecto: Escapa del Laberinto
 
 1. Implementación de Inteligencia a los enemigos
