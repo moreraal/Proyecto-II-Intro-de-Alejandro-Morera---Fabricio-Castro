@@ -102,14 +102,12 @@ class Enemigo:
         self.velocidad = velocidad_base
         self.contador_movimiento = 0
 
-    # REMOVIDO: La función heuristica ya no es necesaria para BFS
 
     def _bfs(self, inicio, objetivo, mapa_logico):
         """
         Implementación de Búsqueda en Amplitud (BFS) para encontrar la ruta más corta.
         """
         filas, columnas = len(mapa_logico), len(mapa_logico[0])
-        # BFS usa una cola simple (deque)
         cola = deque([inicio])
         padre = {inicio: None}
         visitados = {inicio}
@@ -119,12 +117,11 @@ class Enemigo:
             actual = (x, y)
 
             if actual == objetivo:
-                # Reconstrucción del camino
                 camino = []
                 while actual != inicio:
                     camino.append(actual)
                     actual = padre[actual]
-                return camino[-1] if camino else None # Retorna el siguiente paso
+                return camino[-1] if camino else None 
 
             posibles_movimientos = [(-1, 0), (1, 0), (0, -1), (0, 1)]
 
@@ -138,7 +135,7 @@ class Enemigo:
                         visitados.add(vecino)
                         padre[vecino] = actual
                         cola.append(vecino)
-        return None # No se encontró un camino
+        return None 
 
 
     def mover_ia(self, jugador_pos, mapa_logico, salida_pos):
@@ -155,7 +152,6 @@ class Enemigo:
         else:
             objetivo = salida_pos
 
-        # LLAMA AL NUEVO MÉTODO BFS
         siguiente_paso = self._bfs(inicio, objetivo, mapa_logico)
 
         if siguiente_paso:
@@ -176,13 +172,11 @@ class PuntajeManager:
         self.puntos_actuales = 0
         self.historial_completo = []
 
-    # --- Métodos auxiliares de reemplazo para sort ---
     def _obtener_puntaje(self, item):
         return item['puntaje']
 
     def _obtener_fecha(self, item):
         return item['fecha']
-    # -------------------------------------------------
 
     def calcular_y_registrar_puntaje(self, nombre, modo, tiempo_final=0, multiplicador_dificultad=1.0, dificultad="Normal"):
 
@@ -541,7 +535,6 @@ class RegistroVentana(tk.Toplevel):
 
         boton_kwargs = {'bg': ACCENT_BOTON_START, 'fg': FG_PRIMARIO, 'font': ('Arial', 10, 'bold'), 'relief': 'flat', 'width': 30}
 
-        # --- Reemplazo de lambdas por métodos auxiliares ---
         tk.Button(self, text="Comenzar Modo Escapa",
                   command=self._iniciar_escapa, **boton_kwargs).pack(pady=3)
 
@@ -562,9 +555,7 @@ class RegistroVentana(tk.Toplevel):
 
         tk.Button(info_frame, text="Ver Historial", command=self.mostrar_historial,
                   bg=ACCENT_BOTON_INFO, fg=FG_PRIMARIO, font=('Arial', 10), relief='flat').pack(side=tk.LEFT, padx=3)
-        # --------------------------------------------------
 
-    # --- Métodos auxiliares para comandos de botones (Reemplazo de lambda) ---
     def _iniciar_escapa(self):
         self.iniciar_juego('escapa')
 
@@ -576,7 +567,6 @@ class RegistroVentana(tk.Toplevel):
 
     def _mostrar_top_cazador(self):
         self.mostrar_top('cazador')
-    # -------------------------------------------------------------------------
 
     def iniciar_juego(self, modo):
         nombre = self.entry_nombre.get()
@@ -804,3 +794,4 @@ if __name__ == "__main__":
     root = tk.Tk()
     app = Interfaz(root)
     root.mainloop()
+
