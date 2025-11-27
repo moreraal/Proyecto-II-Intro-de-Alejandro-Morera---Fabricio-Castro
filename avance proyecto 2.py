@@ -581,7 +581,6 @@ class RegistroVentana(tk.Toplevel):
             "  • Normal: Velocidad Media / 2 Cazadores (Escapa) / Multiplicador x1.5\n"
             "  • Difícil: Velocidad Rápida / 3 Cazadores (Escapa) / Multiplicador x2.0\n\n"
             "Modo 1: Escapa\n"
-            "  • IA Mejorada: Los enemigos usan A* para perseguirte.\n"
             "  • Objetivo: Llegar a la salida (bandera FIN).\n"
             "  • Trampas (T): Máx. 3 activas (cooldown de 5s). Matan al cazador.\n\n"
             "Modo 2: Cazador\n"
@@ -781,3 +780,4 @@ if __name__ == "__main__":
     root = tk.Tk()
     app = Interfaz(root)
     root.mainloop()
+
