@@ -1,0 +1,3 @@
+En este nuevo avance recién subido tuvimos que ejecutar un cambio drástico ya que tuvimos que cambiar de "tkinter" a "pygame" ya que ocupabamos poner los sonidos y otras cosas a la interfaz 
+y en tkinter no podíamos o se nos dificultaba mucho, entonces decidimos hacer el cambio de la interfaz grafica a "pygame" para poder implementar los sonidos y demás cosas
+que mejoran la parte grafica del juego.
